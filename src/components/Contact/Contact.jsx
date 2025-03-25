@@ -1,6 +1,6 @@
 import React from "react";
-import css from "./Contact.module.css";
 import { FaUser, FaPhone } from "react-icons/fa";
+import css from "./Contact.module.css";
 
 const Contact = ({ contact, onDelete }) => {
   return (
@@ -16,7 +16,7 @@ const Contact = ({ contact, onDelete }) => {
         </div>
       </div>
 
-      <button className={css.btn} onClick={() => onDelete(contact.id)}>
+      <button className={css.btn} onClick={onDelete}>
         Delete
       </button>
     </div>

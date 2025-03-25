@@ -10,14 +10,14 @@ const ContactsForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (name && number) {
-      // Додаємо новий контакт через екшен
-      dispatch(addContact({ id: Date.now().toString(), name, number }));
-      // Очищаємо поля форми
-      setName("");
-      setNumber("");
-    }
+    const newContact = {
+      id: Date.now().toString(),
+      name,
+      number,
+    };
+    dispatch(addContact(newContact));
+    setName("");
+    setNumber("");
   };
 
   return (

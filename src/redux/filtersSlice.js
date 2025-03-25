@@ -1,21 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// Початковий стан для фільтрів
-const initialState = {
-  name: "", // Зберігаємо значення фільтра по імені
-};
-
 const filtersSlice = createSlice({
-  name: "filters", // Назва слайса
-  initialState, // Початковий стан
+  name: "filters",
+  initialState: {
+    name: "",
+  },
   reducers: {
-    // Екшен для зміни фільтра
-    changeFilter: (state, action) => {
-      state.name = action.payload; // Оновлюємо значення фільтра
+    changeFilter(state, action) {
+      state.name = action.payload;
     },
   },
 });
 
-// Експортуємо екшен changeFilter та редюсер
 export const { changeFilter } = filtersSlice.actions;
 export default filtersSlice.reducer;

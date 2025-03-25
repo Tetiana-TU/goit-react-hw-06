@@ -26,6 +26,8 @@
     );
   font-family: "Playfair Display";
   color: #605756;
+  box-shadow: 6px 6px 12px #b8b8b8, -6px -6px 12px #ffffff;
+  transition: box-shadow 250ms linear, transform 250ms linear;
 }
 h1 {
   color: black;

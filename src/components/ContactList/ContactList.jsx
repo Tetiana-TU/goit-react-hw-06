@@ -10,11 +10,8 @@ const ContactList = () => {
 
   const dispatch = useDispatch();
 
-  const handleDelete = (id) => {
-    dispatch(deleteContact(id)); // Відправляємо екшен для видалення контакту
-  };
-  const filteredContacts = contacts.filter(
-    (contact) => contact.name.toLowerCase().includes(filter.toLowerCase()) // Перевіряємо чи є значення фільтра в імені контакту
+  const filteredContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
   );
   return (
     <ul className={css.list}>
@@ -22,7 +19,7 @@ const ContactList = () => {
         <li key={contact.id} className={css.item}>
           <Contact
             contact={contact}
-            onDelete={() => handleDelete(contact.id)} // Відправляємо функцію для видалення контакту
+            onDelete={() => dispatch(deleteContact(contact.id))}
           />
         </li>
       ))}
