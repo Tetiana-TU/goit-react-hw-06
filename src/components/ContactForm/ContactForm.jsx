@@ -6,10 +6,15 @@ import css from "./ContactForm.module.css";
 const ContactsForm = () => {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!name || !number) {
+      setError("fill in the field");
+      return;
+    }
     const newContact = {
       id: Date.now().toString(),
       name,
@@ -18,6 +23,7 @@ const ContactsForm = () => {
     dispatch(addContact(newContact));
     setName("");
     setNumber("");
+    setError("");
   };
 
   return (
@@ -36,6 +42,7 @@ const ContactsForm = () => {
         value={number}
         onChange={(e) => setNumber(e.target.value)}
       />
+      {error && <p className={css.error}>{error}</p>}
       <button className={css.btn} type="submit">
         Add Contact
       </button>
